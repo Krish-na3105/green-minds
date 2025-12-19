@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLearn</title>
+    <!-- Include the Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+        }
+
+        .section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .card-icon {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <!-- EcoLearn Logo -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="h-8 w-8 text-green-600 fill-current">
+                    <!-- Circle -->
+                    <circle cx="32" cy="32" r="30" fill="#34a853" />
+                    <!-- Open book shape -->
+                    <path d="M20 20h10v24H20a6 6 0 01-6-6V26a6 6 0 016-6z" fill="white" />
+                    <path d="M44 20H34v24h10a6 6 0 006-6V26a6 6 0 00-6-6z" fill="white" />
+                    <!-- Leaf inside -->
+                    <path d="M32 28c4 0 6 4 6 8s-2 8-6 8-6-4-6-8 2-8 6-8z" fill="#34a853" />
+                </svg>
+
+                <!-- Text -->
+                <span class="font-bold text-2xl text-green-700">EcoLearn</span>
+            </div>
+
+            <ul class="flex flex-wrap justify-center space-x-4 sm:space-x-8 mt-4 sm:mt-0">
+                <li><a href="#home"
+                        class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Home</a>
+                </li>x`
+                <li><a href="#topics"
+                        class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Topics</a>
+                </li>
+                <li><a href="#activities"
+                        class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Activities</a>
+                </li>
+                <li><a href="#leaderboard"
+                        class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Leaderboard</a>
+                </li>
+                <li><a href="#profile"
+                        class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Welcome/Sign-in Section -->
+        <section id="welcome-section" class="section active">
+            <div class="max-w-xl mx-auto text-center bg-white rounded-xl shadow-lg p-8 sm:p-12 mt-20">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-green-600 mb-4">Welcome to EcoLearn!</h1>
+                <p class="text-gray-600 mb-8">Please select your role to get started with the platform. You will be
+                    automatically signed in as this role.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <button id="set-student-btn-welcome"
+                        class="bg-green-500 text-white font-semibold py-4 px-6 rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 transform hover:-translate-y-1">
+                        I am a Student
+                    </button>
+                    <button id="set-teacher-btn-welcome"
+                        class="bg-blue-500 text-white font-semibold py-4 px-6 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300 transform hover:-translate-y-1">
+                        I am a Teacher
+                    </button>
+                    <button id="set-admin-btn-welcome"
+                        class="bg-red-500 text-white font-semibold py-4 px-6 rounded-lg shadow-md hover:bg-gray-600 transition-colors duration-300 transform hover:-translate-y-1">
+                        I am an Admin
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Section -->
+        <section id="home-section" class="section">
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 text-center mb-8">
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Hero Image -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-600">Learn, Act, and Save Our
+                        Planet</h1>
+                    <p   class="mt-4 text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">Join thousands of students in
+                        India learning environmental science through gamified lessons, real-world activities, and
+                        community challenges.</p>
+                    <br>
+                    <img src="images/leo1.jpg" alt="Students learning about the environment"
+                        class="w-full rounded-lg mb-6 shadow-md" />
+                    <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button id="start-learning-btn"
+                            class="bg-green-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 transform hover:-translate-y-1">Start
+                            Learning</button>
+                        <button id="view-activities-btn"
+                            class="bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300 transform hover:-translate-y-1">View
+                            Activities</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Stat Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+                    <div class="mb-2">
+                        <!-- Points Icon SVG -->
+                        <img src="https://placehold.co/80x80/d1fae5/34d399?text=Points" alt="Eco points icon"
+                            class="h-16 w-16 mx-auto rounded-full card-icon" />
+                    </div>
+                    <div class="text-3xl font-bold text-gray-700"><span id="total-points">0</span></div>
+                    <div class="text-gray-500 text-sm mt-1">Eco Points Earned</div>
+                </div>
+                <!-- Stat Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+                    <div class="mb-2">
+                        <!-- Level Icon SVG -->
+                        <img src="https://placehold.co/80x80/c7d2fe/4f46e5?text=Level" alt="Level icon"
+                            class="h-16 w-16 mx-auto rounded-full card-icon" />
+                    </div>
+                    <div class="text-3xl font-bold text-gray-700"><span id="current-level">0</span></div>
+                    <div class="text-gray-500 text-sm mt-1">Current Level</div>
+                </div>
+                <!-- Stat Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+                    <div class="mb-2">
+                        <!-- Activities Icon SVG -->
+                        <img src="https://placehold.co/80x80/fef3c7/d97706?text=Tasks" alt="Activities completed icon"
+                            class="h-16 w-16 mx-auto rounded-full card-icon" />
+                    </div>
+                    <div class="text-3xl font-bold text-gray-700"><span id="activities-completed">0</span></div>
+                    <div class="text-gray-500 text-sm mt-1">Activities Completed</div>
+                </div>
+                <!-- Stat Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+                    <div class="mb-2">
+                        <!-- Leaderboard Icon SVG -->
+                        <img src="https://placehold.co/80x80/e7e5e9/a855f7?text=Rank" alt="Leaderboard rank icon"
+                            class="h-16 w-16 mx-auto rounded-full card-icon" />
+                    </div>
+                    <div class="text-3xl font-bold text-gray-700">#<span id="leaderboard-rank">0</span></div>
+                    <div class="text-gray-500 text-sm mt-1">Leaderboard Rank</div>
+                </div>
+            </div>
+
+            <!-- About EcoLearn Section (formerly Problem/Solution) -->
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-green-600 mb-4">About EcoLearn</h2>
+                        <p class="text-gray-600 text-lg mb-4">EcoLearn is a gamified platform designed to make
+                            environmental education fun and practical for students in India. We aim to solve the problem
+                            of theoretical learning by offering interactive lessons, real-world challenges, and a reward
+                            system to encourage eco-friendly habits. By making sustainability a part of their daily
+                            lives, students become empowered to create a ripple effect of positive change in their
+                            communities.</p>
+                    </div>
+                    <div>
+                        <img src="images/unnamed(6).webp"
+                            alt="An image of a community working together for a clean environment"
+                            class="w-full rounded-lg shadow-md" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- How Learning Works Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-center mb-6">How Learning Works</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-full font-bold text-xl mb-4">
+                            1</div>
+                        <h3 class="text-xl font-semibold">Learn Concepts</h3>
+                        <p class="text-gray-500 text-sm mt-2">Progressive levels designed for comprehensive
+                            understanding</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-full font-bold text-xl mb-4">
+                            2</div>
+                        <h3 class="text-xl font-semibold">Test Knowledge</h3>
+                        <p class="text-gray-500 text-sm mt-2">Take quizzes and assessments to ensure understanding
+                            before moving to next level</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-full font-bold text-xl mb-4">
+                            3</div>
+                        <h3 class="text-xl font-semibold">Apply Learning</h3>
+                        <p class="text-gray-500 text-sm mt-2">Apply real-world activities and projects to practice
+                            environmental action</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topics Section -->
+        <section id="topics-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Environmental Topics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="topics-container">
+                <!-- Topics will be dynamically loaded here from the API -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-xl font-bold text-gray-700">Loading Topics...</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topic Levels Section -->
+        <section id="topic-levels-section" class="section">
+            <div class="text-center mb-6">
+                <button id="back-to-topics-btn"
+                    class="bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Back to Topics
+                </button>
+                <h2 class="text-3xl font-bold text-center mb-6" id="topic-title"></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div id="beginner-level-btn"
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <h3 class="text-2xl font-bold text-green-600">Beginner</h3>
+                    <p class="text-gray-500 mt-2">Classes 4-6</p>
+                    <img src="images/begin.jpg" alt="Beginner level icon" class="w-full rounded-lg mt-4" />
+                </div>
+                <div id="intermediate-level-btn"
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <h3 class="text-2xl font-bold text-yellow-600">Intermediate</h3>
+                    <p class="text-gray-500 mt-2">Classes 7-10</p>
+                    <img src="images/inter.jpg" alt="Intermediate level icon" class="w-full rounded-lg mt-4" />
+                </div>
+                <div id="advanced-level-btn"
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <h3 class="text-2xl font-bold text-red-600">Advanced</h3>
+                    <p class="text-gray-500 mt-2">Classes 11-College</p>
+                    <img src="images/profe.jpg" alt="Advanced level icon" class="w-full rounded-lg mt-4" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Section -->
+        <section id="lesson-section" class="section">
+            <div class="text-center mb-6">
+                <button id="back-to-levels-btn"
+                    class="bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Back to Levels
+                </button>
+                <h2 class="text-3xl font-bold text-green-600 mb-2" id="lesson-topic-title"></h2>
+                <h3 class="text-xl font-semibold text-gray-700 mb-6" id="lesson-level-title"></h3>
+            </div>
+            <div id="lessons-content" class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <!-- Lessons, Quiz, and Challenge will be injected here -->
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Real-World Activities</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 text-center mb-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="text-3xl font-bold text-green-600">3</div>
+                        <div class="text-gray-500 text-sm">Available Activities</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-3xl font-bold text-green-600">2</div>
+                        <div class="text-gray-500 text-sm">Completed</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-3xl font-bold text-green-600">1</div>
+                        <div class="text-gray-500 text-sm">In Review</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-3xl font-bold text-green-600">200</div>
+                        <div class="text-gray-500 text-sm">Total Points</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="activities-container">
+                <!-- Activity Cards will be dynamically loaded here from the API -->
+                <div
+                    class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-xl font-bold text-gray-700">Loading Activities...</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Individual Activity Section for students to submit photos -->
+        <section id="individual-activity-section" class="section">
+            <div class="text-center mb-6">
+                <button id="back-to-activities-btn"
+                    class="bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Back to Activities
+                </button>
+            </div>
+            <div id="individual-activity-content" class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <!-- Activity details and photo submission form will be injected here -->
+            </div>
+        </section>
+
+        <!-- Teacher Dashboard Section -->
+        <section id="teacher-dashboard-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Teacher Dashboard</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <h3 class="text-xl font-bold mb-4">Pending Student Submissions</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Student ID</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Task</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacher-submissions-table" class="bg-white divide-y divide-gray-200">
+                            <!-- Student submission data will be inserted here by JavaScript -->
+                            <tr>
+                                <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center text-gray-500">No pending
+                                    submissions.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard Section -->
+        <section id="admin-dashboard-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Admin Dashboard</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <h3 class="text-xl font-bold mb-4">Pending Teacher Approvals</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    User ID</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Requested Role</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-approvals-table" class="bg-white divide-y divide-gray-200">
+                            <!-- Teacher approval requests will be inserted here by JavaScript -->
+                            <tr>
+                                <td colspan="3" class="px-6 py-4 whitespace-nowrap text-center text-gray-500">No pending
+                                    approvals.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Content Management Section -->
+        <section id="admin-content-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Admin Content Management</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <h3 class="text-xl font-bold mb-4">Add New Topic</h3>
+                <form id="add-topic-form" class="space-y-4">
+                    <div>
+                        <label for="new-topic-title" class="block text-sm font-medium text-gray-700">Topic Title</label>
+                        <input type="text" id="new-topic-title" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                            placeholder="e.g., Biodiversity">
+                    </div>
+                    <div>
+                        <label for="new-topic-id" class="block text-sm font-medium text-gray-700">Topic ID (e.g.,
+                            biodiversity)</label>
+                        <input type="text" id="new-topic-id" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                            placeholder="e.g., biodiversity">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 transition-colors duration-200">Add
+                        Topic</button>
+                    <div id="new-topic-status" class="mt-4 text-center text-sm text-green-600"></div>
+                </form>
+                <hr class="my-8 border-t border-gray-200" />
+                <h3 class="text-xl font-bold mb-4">Delete Topic</h3>
+                <div class="flex space-x-2">
+                    <select id="delete-topic-select"
+                        class="flex-grow rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></select>
+                    <button id="delete-topic-btn"
+                        class="bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 transition-colors duration-200">Delete</button>
+                </div>
+                <div id="delete-topic-status" class="mt-4 text-center text-sm text-red-600"></div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <h3 class="text-xl font-bold mb-4">Add Content to a Topic Level</h3>
+                <form id="add-level-content-form" class="space-y-4">
+                    <div>
+                        <label for="content-topic-select" class="block text-sm font-medium text-gray-700">Select
+                            Topic</label>
+                        <select id="content-topic-select"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></select>
+                    </div>
+                    <div>
+                        <label for="content-level-select" class="block text-sm font-medium text-gray-700">Select
+                            Level</label>
+                        <select id="content-level-select"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <div id="content-type-form">
+                        <hr class="my-4" />
+                        <!-- Lessons Form -->
+                        <div id="lesson-form" class="mb-6 space-y-2">
+                            <h4 class="text-lg font-semibold">Add New Lesson</h4>
+                            <input type="text" id="lesson-title"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Lesson Title">
+                            <input type="text" id="lesson-video-url"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="YouTube Video URL">
+                            <button type="button" id="add-lesson-btn"
+                                class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600">Add
+                                Lesson</button>
+                        </div>
+
+                        <!-- Quiz Form -->
+                        <div id="quiz-form" class="mb-6 space-y-2">
+                            <h4 class="text-lg font-semibold">Add New Quiz</h4>
+                            <input type="text" id="quiz-title"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Quiz Title">
+                            <input type="text" id="quiz-question"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Question">
+                            <input type="text" id="quiz-option-1"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Option 1">
+                            <input type="text" id="quiz-option-2"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Option 2">
+                            <input type="text" id="quiz-option-3"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Option 3">
+                            <input type="text" id="quiz-option-4"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Option 4">
+                            <button type="button" id="add-quiz-btn"
+                                class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600">Add
+                                Quiz</button>
+                        </div>
+
+                        <!-- Challenge Form -->
+                        <div id="challenge-form" class="mb-6 space-y-2">
+                            <h4 class="text-lg font-semibold">Add New Challenge</h4>
+                            <input type="text" id="challenge-title"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Challenge Title">
+                            <textarea id="challenge-description" rows="3"
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                placeholder="Challenge Description"></textarea>
+                            <button type="button" id="add-challenge-btn"
+                                class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600">Add
+                                Challenge</button>
+                        </div>
+                    </div>
+
+                    <div id="content-status" class="mt-4 text-center text-sm text-green-600"></div>
+                </form>
+            </div>
+
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Leaderboard</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Rank</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Eco Points</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Activities Completed</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    User ID</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Leaderboard data will be inserted here by JavaScript -->
+                            <tr>
+                                <td colspan="5" class="px-6 py-4 whitespace-nowrap text-center text-gray-500">Loading
+                                    leaderboard...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="section">
+            <h2 class="text-3xl font-bold text-center mb-6">Profile</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-8 max-w-lg mx-auto">
+                <div class="text-center mb-6">
+                    <img id="profile-picture" src="https://placehold.co/120x120/d1fae5/34d399?text=Profile"
+                        alt="User profile picture" class="h-32 w-32 mx-auto rounded-full mb-4 card-icon" />
+                    <h3 id="profile-user-name" class="text-2xl font-bold text-green-600">Loading...</h3>
+                    <p id="profile-user-id" class="text-gray-500 text-sm break-all"></p>
+                    <p id="profile-user-role" class="mt-2 text-green-500 font-semibold"></p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-100 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-gray-700"><span id="profile-points">0</span></div>
+                        <div class="text-gray-500 text-sm">Eco Points</div>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-gray-700"><span id="profile-level">0</span></div>
+                        <div class="text-gray-500 text-sm">Current Level</div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-gray-700"><span id="profile-activities">0</span></div>
+                    <div class="text-gray-500 text-sm">Activities Completed</div>
+                </div>
+                <!-- Role-specific profile content -->
+                <div id="profile-role-content"></div>
+                <hr class="my-6 border-t border-gray-200" />
+                <h3 class="text-xl font-bold mb-4 text-center">Update Profile</h3>
+                <form id="profile-form">
+                    <div class="mb-4">
+                        <label for="name-input" class="block text-gray-700 font-semibold mb-2">Name</label>
+                        <input type="text" id="name-input"
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                            placeholder="Enter your name">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 transition-colors duration-200">Save
+                        Profile</button>
+                </form>
+                <div id="profile-status" class="mt-4 text-center text-sm text-green-600"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-200 mt-12 py-10">
+    <div class="container mx-auto px-4 text-center">
+        <div class="flex items-center justify-center space-x-2 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="h-8 w-8 text-green-500 fill-current">
+                <circle cx="32" cy="32" r="30" fill="#34a853" />
+                <path d="M20 20h10v24H20a6 6 0 01-6-6V26a6 6 0 016-6z" fill="white" />
+                <path d="M44 20H34v24h10a6 6 0 006-6V26a6 6 0 00-6-6z" fill="white" />
+                <path d="M32 28c4 0 6 4 6 8s-2 8-6 8-6-4-6-8 2-8 6-8z" fill="#34a853" />
+            </svg>
+            <span class="font-bold text-2xl text-green-500">EcoLearn</span>
+        </div>
+        <p class="text-lg font-semibold text-white mb-2">Empowering students to save our planet</p>
+        <p class="text-sm text-gray-400">
+            Supporting Sustainable Development Goals, the 5Rs, and NEP 2020.
+        </p>
+        <div class="flex justify-center space-x-6 text-xl mt-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22.5c5.14-.755 9.128-4.888 9.128-9.878z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Twitter">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.531A8.32 8.32 0 0022 5.92a8.18 8.18 0 01-2.357.646 4.111 4.111 0 001.8-2.27 8.242 8.242 0 01-2.606.996A4.108 4.108 0 0011.6 4.6c-2.484 0-4.5 2.02-4.5 4.5 0 .378.04.748.113 1.104-3.72-.185-7.04-1.972-9.25-4.685.385.63.691 1.36.914 2.15.223.784.341 1.62.341 2.5a4.49 4.49 0 01-1.25 3.125 4.512 4.512 0 00-.783 2.296 8.353 8.353 0 00.996 4.505c-.65-.18-1.265-.41-1.84-.68.868 2.072 2.65 3.58 4.75 4.38a8.332 8.332 0 00-3.376.59c-1.25.32-2.584.5-3.95.5a.75.75 0 01-.75-.75c0-.414.336-.75.75-.75h.08a8.31 8.31 0 003.546-.77c.38-.16.75-.35 1.1-.56a8.212 8.212 0 001.074.55c.38.16.75.35 1.1.56a8.212 8.212 0 001.074.55z" />
+                </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Instagram">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.373 11.25h-2.746v-2.5h2.746c.355 0 .642-.287.642-.642s-.287-.642-.642-.642h-2.746v-2.5h2.746c.355 0 .642-.287.642-.642S15.728 5 15.373 5H8.627c-.355 0-.642.287-.642.642s.287.642.642.642h2.746v2.5h-2.746c-.355 0-.642.287-.642.642s.287.642.642.642h2.746v2.5H8.627c-.355 0-.642.287-.642.642s.287.642.642.642h2.746v2.5h-2.746c-.355 0-.642.287-.642.642s.287.642.642.642h6.746c.355 0 .642-.287.642-.642s-.287-.642-.642-.642h-2.746v-2.5z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+        <div class="mt-8 text-sm text-gray-500">
+            <p>&copy; 2025 EcoLearn. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // --- Mock Content Data (for simulating API responses) ---
+        const sampleTopics = {
+            'water-conservation': {
+                title: 'Water Conservation',
+                description: 'Learn about saving water and protecting our water resources.',
+                image_url: 'images/cons.webp',
+                levels: {
+                    'beginner': {
+                        lessons: [
+                            { title: 'Video 1: What is Water Conservation', videoUrl: 'video.mp4' },
+                        ],
+                        quizzes: [
+                            {
+                                title: "Q1",
+                                question: "What color does clean water usually look like?",
+                                options: ["Blue", "Green", "Transparent", "Brown"],
+                                answer: "Transparent"
+                            },
+                            {
+                                title: "Q2",
+                                question: "The longest river in India is:",
+                                options: ["Yamuna", "Ganga", "Godavari", "Narmada"],
+                                answer: "Ganga"
+                            },
+                            {
+                                title: "Q3",
+                                question: "Why should we not waste water?",
+                                options: ["Because it rains every year", "Fresh water is limited", "It is available in oceans", "It is always clean"],
+                                answer: "Fresh water is limited"
+                            },
+                            {
+                                title: "Q4",
+                                question: "Which of these is a good way to save water at home?",
+                                options: ["Leaving the tap open", "Washing car with a bucket instead of a pipe", "Throwing waste in rivers", "Using more water than needed"],
+                                answer: "Washing car with a bucket instead of a pipe"
+                            },
+                            {
+                                title: "Q5",
+                                question: "Which of these is a source of drinking water in villages?",
+                                options: ["Sea water", "Ocean", "Wells and handpumps", "Rainwater only"],
+                                answer: "Wells and handpumps"
+                            }
+                        ],
+                        challenges: [
+                            { title: "Save Water at Home", description: "Track how many times you turn off taps while brushing or washing hands." },
+                            { title: "Plastic-Free Bottle", description: "Use a steel or reusable bottle instead of single-use plastic for one week." },
+                            { title: "Poster Challenge", description: "Create a drawing/poster showing 'Ways to Save Water'." },
+                        ]
+                    },
+                    'intermediate': {
+                        lessons: [
+                            { title: 'Video 3: Groundwater Depletion', videoUrl: 'https://www.youtube.com/embed/rK2qL2gE_oU?si=tU3XlD3f-f9rB10j' },
+                        ],
+                        quizzes: [
+                            {
+                                title: "Q1",
+                                question: "Which toxic element in groundwater is known to cause cancer?",
+                                options: ["Fluoride", "Chlorine", "Arsenic", "Mercury"],
+                                answer: "Arsenic"
+                            },
+                            {
+                                title: "Q2",
+                                question: "Which Indian city almost faced “Day Zero” in 2019?",
+                                options: ["Kolkata", "Chennai", "Hyderabad", "Lucknow"],
+                                answer: "Chennai"
+                            },
+                            {
+                                title: "Q3",
+                                question: "Which government programme was started in 2014 to clean the Ganga?",
+                                options: ["Jal Jeevan Mission", "Namami Gange Programme", "Save Water Programme", "Clean India Programme"],
+                                answer: "Namami Gange Programme"
+                            },
+                            {
+                                title: "Q4",
+                                question: "Which Indian state suffers from high fluoride contamination in groundwater?",
+                                options: ["Kerala", "Rajasthan", "Punjab", "Assam"],
+                                answer: "Rajasthan"
+                            },
+                            {
+                                title: "Q5",
+                                question: "What percentage of sewage in India is treated before release into rivers?",
+                                options: ["Less than 30%", "About 50%", "Around 70%", "Almost 90%"],
+                                answer: "Less than 30%"
+                            }
+                        ],
+                        challenges: [
+                            { title: "Water Usage Diary", description: "Record your family’s daily water use for 3 days and suggest 2 ways to reduce it." },
+                            { title: "Bucket Challenge", description: "Wash a cycle (bike/car/utensils) using only a bucket instead of running tap water." },
+                            { title: "School Awareness Drive", description: "Conduct a short presentation, play, or debate in class about saving water." },
+
+                        ]
+                    },
+                    'advanced': {
+                        lessons: [
+                            { title: 'Video 5: Water Footprint and Policy', videoUrl: 'https://www.youtube.com/embed/QY24_r96rP8?si=lJ1Z5qP2i1j8y8Fp' }
+                        ],
+                        quizzes: [
+                            {
+                                title: "Q1",
+                                question: "Which scheme was launched in 2019 to provide tap water to every rural household?",
+                                options: ["Jal Jeevan Mission", "Namami Gange", "Swachh Jal Abhiyan", "Clean Rivers Programme"],
+                                answer: "Jal Jeevan Mission"
+                            },
+                            {
+                                title: "Q2",
+                                question: "What does “Day Zero” mean?",
+                                options: ["A day of no rainfall", "The day a city’s water supply runs out", "A day when all rivers dry", "The day groundwater is recharged"],
+                                answer: "The day a city’s water supply runs out"
+                            },
+                            {
+                                title: "Q3",
+                                question: "Which disorder is caused by excess fluoride in water?",
+                                options: ["Malaria", "Fluorosis", "Asthma", "Tuberculosis"],
+                                answer: "Fluorosis"
+                            },
+                            {
+                                title: "Q4",
+                                question: "What is one limitation of the Namami Gange Programme?",
+                                options: ["Lack of government funding", "Slow sewage treatment plant construction", "Lack of awareness among students", "Too much rainfall in Ganga basin"],
+                                answer: "Slow sewage treatment plant construction"
+                            },
+                            {
+                                title: "Q5",
+                                question: "Which of these are sustainable solutions for water scarcity?",
+                                options: ["Rainwater harvesting and wastewater recycling", "Cutting forests and over-irrigation", "Dumping industrial waste in rivers", "Using more groundwater without recharge"],
+                                answer: "Rainwater harvesting and wastewater recycling"
+                            }
+                        ],
+                        challenges: [
+                            { title: "Community Clean-Up", description: "Organize or join a waterbody clean-up drive (pond, tank, or lake)." },
+                            { title: "Rainwater Harvesting Design", description: "Make a simple model (drawing or prototype) of a rainwater harvesting system." },
+                            { title: "Survey Project", description: "Interview 5 households about their water-saving habits and prepare a short report." },
+                        ]
+                    }
+                }
+            },
+            'deforestation': {
+                title: 'Deforestation',
+                description: 'Learn the effects of deforestation and ways to protect forests.',
+                image_url: 'images/defor1.jpg',
+                levels: {
+                    'beginner': {
+                        lessons: [
+                            { title: 'Video 5: Water Footprint and Policy', videoUrl: 'Deforestation.mp4' }
+                        ],
+                        quizzes: [
+                            { title: "Q1",
+                            question: "Cutting down of trees is called:", options: ["Afforestation", "Deforestation", "Plantation", "Farming"], answer: "Deforestation" },
+                            { title: "Q2",question: "Planting trees again is called:", options: ["Reforestation", "Mining", "Deforestation", "Cultivation"], answer: "Reforestation" },
+                            { title: "Q3",question: "Which river is most polluted in India?", options: ["Brahmaputra", "Ganga", "Yamuna", "Godavari"], answer: "Yamuna" },
+                            { title: "Q4",question: "Why should we save water?", options: ["Water is unlimited", "Fresh water is limited", "Water is dirty", "To waste less time"], answer: "Fresh water is limited" },
+                            { title: "Q5",question: "Cutting trees causes which type of erosion?", options: ["Air erosion", "Wind erosion", "Soil erosion", "Water erosion"], answer: "Soil erosion" }
+                        ],
+                        challenges: [
+                            { title: "Plant a Sapling", description: "Plant one tree/plant at home or school and share progress weekly." },
+                            { title: "Leaf Art", description: "Collect fallen leaves and make an art piece or collage about 'Save Trees'." },
+                            { title: "Storytelling", description: "Write a short story on 'Why trees are our best friends'." },
+                        ]
+                    },
+                    'intermediate': {
+                        lessons: [],
+                        quizzes: [
+                            { title: "Q1",question: "Forests help reduce which greenhouse gas?", options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Methane"], answer: "Carbon dioxide" },
+                            { title: "Q2",question: "Name the famous mangrove forest in West Bengal.", options: ["Amazon", "Sundarbans", "Nilgiri Hills", "Aravalli"], answer: "Sundarbans" },
+                            { title: "Q3",question: "Which Indian city suffered a severe water crisis in 2019?", options: ["Delhi", "Mumbai", "Chennai", "Jaipur"], answer: "Chennai" },
+                            { title: "Q4",question: "Which programme was launched in 2014 to clean the Ganga?", options: ["Jal Jeevan Mission", "Swachh Bharat Mission", "Namami Gange Programme", "Save Ganga Yojana"], answer: "Namami Gange Programme" },
+                            { title: "Q5",question: "Which disease is caused by drinking polluted water?", options: ["Malaria", "Cholera", "Dengue", "Tuberculosis"], answer: "Cholera" }
+                        ],
+                        challenges: [
+                            { title: "Plastic-Free Parks", description: "Organize a small group to clean up a park/playground area." },
+                            { title: "Tree Awareness Posters", description: "Design posters showing effects of cutting trees (soil erosion, climate change)." },
+                            { title: "Mini Forest Project", description: "Grow a 'green corner' in school using pots, recycled bottles, or a patch of soil." },
+                        ]
+                    },
+                    'advanced': {
+                        lessons: [],
+                        quizzes: [
+                            { title: "Q1",question: "According to India’s Forest Policy, what percentage of forest cover is recommended?", options: ["15%", "25%", "33%", "50%"], answer: "33%" },
+                            { title: "Q2",question: "“Day Zero” refers to:", options: ["The day when pollution ends", "The day a city’s water supply runs out", "The day when forests vanish", "The day carbon emissions stop"], answer: "The day a city’s water supply runs out" },
+                            { title: "Q3",question: "Which of the following is an endemic species of the Western Ghats?", options: ["Royal Bengal Tiger", "Asiatic Lion", "Lion-tailed Macaque", "Leopard"], answer: "Lion-tailed Macaque" },
+                            { title: "Q4",question: "Excess fluoride in water causes:", options: ["Malaria", "Fluorosis", "Asthma", "Dengue"], answer: "Fluorosis" },
+                            { title: "Q5",question: "Which of the following are sustainable solutions for water scarcity and deforestation?", options: ["Rainwater harvesting & afforestation", "Overuse of fertilizers & pesticides", "Cutting forests for mining", "Burning fossil fuels"], answer: "Rainwater harvesting & afforestation" }
+                        ],
+                        challenges: [{ title: "Research Project", description: "Document how deforestation impacts local biodiversity (birds, plants, animals)." },
+                        { title: "Afforestation Drive", description: "Plan or join a tree plantation activity with NGOs/community groups." },
+                        { title: "Policy Proposal", description: "Draft a one-page suggestion to your school/college on how to reduce paper use and save trees." }]
+                    }
+                }
+            },
+            'waste-management': {
+                title: 'Waste Management',
+                description: 'Master the art of reducing, reusing, and recycling waste.',
+                image_url: 'images/man1.jpg',
+                levels: {
+                    'beginner': { lessons: [], quizzes: [], challenges: [] },
+                    'intermediate': { lessons: [], quizzes: [], challenges: [] },
+                    'advanced': { lessons: [], quizzes: [], challenges: [] }
+                }
+            },
+            'energy-efficiency': {
+                title: 'Energy Efficiency',
+                description: 'Discover renewable energy and smart consumption practices.',
+                image_url: 'images/ele.jpg',
+                levels: {
+                    'beginner': { lessons: [], quizzes: [], challenges: [] },
+                    'intermediate': { lessons: [], quizzes: [], challenges: [] },
+                    'advanced': { lessons: [], quizzes: [], challenges: [] }
+                }
+            }
+        };
+
+        const sampleActivities = [
+            {
+                id: '1',
+                title: 'Plant a Tree',
+                description: 'Plant a tree in your community and document the process.',
+                type: 'Challenge',
+                image_url: 'images/plant.jpg'
+            },
+            {
+                id: '2',
+                title: 'Water Usage Quiz',
+                description: 'Test your knowledge about water conservation practices.',
+                type: 'Quiz',
+                image_url: 'images/water1.jpg'
+            },
+            {
+                id: '3',
+                title: 'Plastic Disposal Photo Challenge',
+                description: 'Document proper plastic disposal in your home.',
+                type: 'Challenge',
+                image_url: 'images/plastic.jpg'
+            }
+        ];
+
+
+        const sampleLeaderboard = [
+            { userId: 'user1', name: 'Ravi Sharma', ecoPoints: 1250, activitiesCompleted: 15 },
+            { userId: 'user2', name: 'Priya Singh', ecoPoints: 1100, activitiesCompleted: 12 },
+            { userId: 'user3', name: 'Amit Kumar', ecoPoints: 950, activitiesCompleted: 10 }
+        ];
+
+        let userId = 'default-user-id'; // A mock user ID for local development
+        let userProfile = { name: 'New User', ecoPoints: 0, level: 0, activitiesCompleted: 0, role: '' };
+        let userRole = '';
+        let currentTopic = '';
+        let currentLevel = '';
+        let currentActivityId = '';
+
+        // --- Mock API Functions ---
+        // These functions simulate API calls to a backend server.
+        // A real backend would connect to PostgreSQL.
+        const api = {
+            async getTopics() {
+                // In a real app, this would be: return fetch('/api/topics');
+                return new Promise(resolve => setTimeout(() => resolve(Object.values(sampleTopics).map((t, i) => ({ ...t, id: Object.keys(sampleTopics)[i] }))), 500));
+            },
+            async getTopicById(id) {
+                // In a real app: return fetch(`/api/topics/${id}`);
+                return new Promise(resolve => setTimeout(() => resolve(sampleTopics[id]), 200));
+            },
+            async getActivities() {
+                // In a real app: return fetch('/api/activities');
+                return new Promise(resolve => setTimeout(() => resolve(sampleActivities), 500));
+            },
+            async getActivityById(id) {
+                // In a real app: return fetch(`/api/activities/${id}`);
+                const activity = sampleActivities.find(a => a.id === id);
+                return new Promise(resolve => setTimeout(() => resolve(activity), 200));
+            },
+            async getLeaderboard() {
+                // In a real app: return fetch('/api/leaderboard');
+                return new Promise(resolve => setTimeout(() => resolve(sampleLeaderboard), 500));
+            },
+            async getUserProfile(id) {
+                // In a real app: return fetch(`/api/profile/${id}`);
+                return new Promise(resolve => setTimeout(() => {
+                    if (id === userId) {
+                        resolve(userProfile);
+                    } else {
+                        resolve({ name: 'Guest User', ecoPoints: 0, level: 1, activitiesCompleted: 0, role: '' });
+                    }
+                }, 200));
+            },
+            async setUserProfile(profile) {
+                // In a real app: return fetch(`/api/profile/${profile.id}`, { method: 'POST', body: JSON.stringify(profile) });
+                return new Promise(resolve => setTimeout(() => {
+                    userProfile = { ...userProfile, ...profile };
+                    resolve(userProfile);
+                }, 200));
+            },
+            async addTopic(topic) {
+                // In a real app: return fetch('/api/topics', { method: 'POST', body: JSON.stringify(topic) });
+                return new Promise(resolve => {
+                    sampleTopics[topic.topicId] = topic;
+                    resolve(topic);
+                });
+            },
+            async deleteTopic(id) {
+                // In a real app: return fetch(`/api/topics/${id}`, { method: 'DELETE' });
+                return new Promise(resolve => {
+                    delete sampleTopics[id];
+                    resolve({ message: 'Topic deleted' });
+                });
+            },
+            async addLevelContent(topicId, levelId, contentType, content) {
+                return new Promise(resolve => {
+                    sampleTopics[topicId].levels[levelId][contentType].push(content);
+                    resolve({ message: `${contentType.slice(0, -1)} added successfully!` });
+                });
+            }
+        };
+
+        // --- Global Functions ---
+        const sections = document.querySelectorAll('.section');
+
+        window.showSection = function (sectionId) {
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        const showLevels = function (topicId) {
+            currentTopic = topicId;
+            const topicTitleEl = document.getElementById(`topic-title-${topicId}`);
+            if (topicTitleEl) {
+                const topicTitle = topicTitleEl.textContent;
+                document.getElementById('topic-title').textContent = `Select Level for ${topicTitle}`;
+            }
+            showSection('topic-levels-section');
+        }
+
+        const startLearning = async function (levelId) {
+            currentLevel = levelId;
+
+            const topicData = await api.getTopicById(currentTopic);
+            if (!topicData) {
+                console.error("Topic not found:", currentTopic);
+                return;
+            }
+            const levelData = topicData.levels[levelId];
+
+            const lessonTopicTitleEl = document.getElementById('lesson-topic-title');
+            if (lessonTopicTitleEl) lessonTopicTitleEl.textContent = topicData.title;
+
+            const lessonLevelTitleEl = document.getElementById('lesson-level-title');
+            if (lessonLevelTitleEl) lessonLevelTitleEl.textContent = levelId.charAt(0).toUpperCase() + levelId.slice(1);
+
+            const contentDiv = document.getElementById('lessons-content');
+            if (!contentDiv) return;
+            contentDiv.innerHTML = ''; // Clear existing content
+
+            // Display Lessons
+            const lessons = levelData.lessons || [];
+            let lessonsHtml = `<h3 class="text-2xl font-bold text-green-600 mb-4">Lessons</h3>`;
+            if (lessons.length > 0) {
+                lessons.forEach(lesson => {
+                    lessonsHtml += `
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-lg mb-2">${lesson.title}</h4>
+                            <div class="relative w-full overflow-hidden" style="padding-top: 56.25%;">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="${lesson.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                lessonsHtml += `<div class="bg-gray-100 p-4 rounded-lg mt-8 text-gray-500">No lessons available for this level.</div>`;
+            }
+            contentDiv.innerHTML += lessonsHtml;
+
+            // Display Quizzes (Mocking from an API)
+            const quizzes = levelData.quizzes || [];
+            let quizzesHtml = `<h3 class="text-2xl font-bold text-green-600 mb-4 mt-8">Quiz</h3>`;
+            if (quizzes.length > 0) {
+                quizzes.forEach(quiz => {
+                    quizzesHtml += `
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-lg mb-2">${quiz.title}</h4>
+                            <p class="text-gray-600 mb-4">${quiz.question}</p>
+                            <div class="flex flex-col space-y-2">
+                                ${quiz.options.map(option => `<button class="w-full bg-white text-gray-700 py-2 px-4 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors duration-200">${option}</button>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                quizzesHtml += `<div class="bg-gray-100 p-4 rounded-lg mt-8 text-gray-500">No quiz available for this level.</div>`;
+            }
+            contentDiv.innerHTML += quizzesHtml;
+
+            // Display Challenges (Mocking from an API)
+            const challenges = levelData.challenges || [];
+            let challengesHtml = `<h3 class="text-2xl font-bold text-green-600 mb-4 mt-8">Real-Life Challenge</h3>`;
+            if (challenges.length > 0) {
+                challenges.forEach(challenge => {
+                    challengesHtml += `
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-lg mb-2">${challenge.title}</h4>
+                            <p class="text-gray-600">${challenge.description}</p>
+                            <button class="w-full mt-4 bg-green-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-200">Submit Challenge Proof</button>
+                        </div>
+                    `;
+                });
+            } else {
+                challengesHtml += `<div class="bg-gray-100 p-4 rounded-lg mt-8 text-gray-500">No challenge available for this level.</div>`;
+            }
+            contentDiv.innerHTML += challengesHtml;
+
+            showSection('lesson-section');
+        }
+
+        const showActivityDetails = async function (activityId) {
+            currentActivityId = activityId;
+            const activityData = await api.getActivityById(activityId);
+            if (!activityData) {
+                console.error("Activity not found");
+                return;
+            }
+
+            const contentDiv = document.getElementById('individual-activity-content');
+            if (!contentDiv) return;
+
+            contentDiv.innerHTML = `
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl font-bold text-green-600 mb-2">${activityData.title}</h2>
+                    <p class="text-gray-500">${activityData.type}</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                    <p class="text-gray-600">${activityData.description}</p>
+                </div>
+                ${activityData.type === 'Challenge' ? `
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Submit Your Proof</h3>
+                    <input type="file" id="photo-upload" accept="image/*" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <button id="submit-photo-btn" class="w-full mt-4 bg-green-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-200">
+                        Upload Photo
+                    </button>
+                    <div id="upload-status" class="mt-4 text-center text-sm text-green-600"></div>
+                </div>
+                ` : activityData.type === 'Quiz' ? `
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Take the Quiz</h3>
+                    <p class="text-gray-600 mb-4">${activityData.question}</p>
+                    <div class="flex flex-col space-y-2">
+                        ${activityData.options.map(option => `<button class="w-full bg-white text-gray-700 py-2 px-4 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors duration-200">${option}</button>`).join('')}
+                    </div>
+                </div>
+                ` : ''}
+            `;
+            showSection('individual-activity-section');
+            if (activityData.type === 'Challenge') {
+                document.getElementById('submit-photo-btn').addEventListener('click', uploadPhoto);
+            }
+        }
+
+        async function uploadPhoto() {
+            // A real backend would handle file uploads and store the URL in the database
+            const uploadStatus = document.getElementById('upload-status');
+            uploadStatus.textContent = "Photo submitted successfully! (Mocked)";
+        }
+
+        const fetchUserProfile = async (id) => {
+            userProfile = await api.getUserProfile(id);
+            userRole = userProfile.role;
+        }
+
+        const updateUIBasedOnRole = () => {
+            const navUl = document.querySelector('nav ul');
+            const profileRoleContent = document.getElementById('profile-role-content');
+
+            navUl.innerHTML = `
+                <li><a href="#home" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Home</a></li>
+                <li><a href="#topics" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Topics</a></li>
+                <li><a href="#activities" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Activities</a></li>
+            `;
+
+            if (userRole === 'student') {
+                navUl.innerHTML += `
+                    <li><a href="#leaderboard" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Leaderboard</a></li>
+                    <li><a href="#profile" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Profile</a></li>
+                `;
+                if (profileRoleContent) profileRoleContent.innerHTML = `
+                     <div class="mt-4">
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-gray-600">Progress to Next Level</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 50%;"></div>
+                            </div>
+                            <span class="text-sm font-semibold text-green-600">50%</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b">
+                            <span class="text-gray-600">Next Badge</span>
+                            <span class="text-sm font-semibold text-yellow-500">Eco-Explorer</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-gray-600">Total Badges</span>
+                            <span class="text-sm font-semibold text-gray-700">3</span>
+                        </div>
+                     </div>
+                 `;
+                showSection('home-section');
+            } else if (userRole === 'teacher') {
+                navUl.innerHTML += `
+                    <li><a href="#teacher-dashboard" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Teacher Dashboard</a></li>
+                    <li><a href="#profile" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Profile</a></li>
+                `;
+                if (profileRoleContent) profileRoleContent.innerHTML = `<p class="text-center text-gray-500 mt-4">You are a teacher. You can manage and approve student submissions.</p>`;
+                showSection('teacher-dashboard-section');
+            } else if (userRole === 'admin') {
+                navUl.innerHTML += `
+                    <li><a href="#admin-dashboard" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Admin Dashboard</a></li>
+                    <li><a href="#admin-content-section" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Manage Content</a></li>
+                    <li><a href="#profile" class="nav-link text-gray-600 hover:text-green-500 transition-colors duration-200">Profile</a></li>
+                `;
+                if (profileRoleContent) profileRoleContent.innerHTML = `<p class="text-center text-gray-500 mt-4">You are an admin. You have full control over the platform's content and user roles.</p>`;
+                showSection('admin-dashboard-section');
+            }
+        };
+
+        const listenToProfileData = async () => {
+            const data = await api.getUserProfile(userId);
+            if (data) {
+                const profileUserNameEl = document.getElementById('profile-user-name');
+                if (profileUserNameEl) profileUserNameEl.textContent = data.name || 'Anonymous User';
+
+                const profileUserRoleEl = document.getElementById('profile-user-role');
+                if (profileUserRoleEl) profileUserRoleEl.textContent = `Role: ${data.role.charAt(0).toUpperCase() + data.role.slice(1)}`;
+
+                const profileUserIdEl = document.getElementById('profile-user-id');
+                if (profileUserIdEl) profileUserIdEl.textContent = `User ID: ${userId}`;
+
+                const profilePointsEl = document.getElementById('profile-points');
+                if (profilePointsEl) profilePointsEl.textContent = data.ecoPoints || 0;
+
+                const profileLevelEl = document.getElementById('profile-level');
+                if (profileLevelEl) profileLevelEl.textContent = data.level || 1;
+
+                const profileActivitiesEl = document.getElementById('profile-activities');
+                if (profileActivitiesEl) profileActivitiesEl.textContent = data.activitiesCompleted || 0;
+
+                const nameInputEl = document.getElementById('name-input');
+                if (nameInputEl) nameInputEl.value = data.name || '';
+
+                const totalPointsEl = document.getElementById('total-points');
+                if (totalPointsEl) totalPointsEl.textContent = data.ecoPoints || 0;
+
+                const currentLevelEl = document.getElementById('current-level');
+                if (currentLevelEl) currentLevelEl.textContent = data.level || 0;
+
+                const activitiesCompletedEl = document.getElementById('activities-completed');
+                if (activitiesCompletedEl) activitiesCompletedEl.textContent = data.activitiesCompleted || 0;
+            } else {
+                console.log("No profile data found.");
+            }
+        };
+
+        const listenToLeaderboardData = async () => {
+            const leaderboardData = await api.getLeaderboard();
+
+            const sortedData = leaderboardData.sort((a, b) => b.ecoPoints - a.ecoPoints).slice(0, 10);
+
+            const tableBody = document.getElementById('leaderboard-table-body');
+            const leaderboardRankEl = document.getElementById('leaderboard-rank');
+            if (!tableBody || !leaderboardRankEl) return;
+
+            tableBody.innerHTML = '';
+
+            if (sortedData.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="5" class="px-6 py-4 whitespace-nowrap text-center text-gray-500">No data available.</td></tr>`;
+            } else {
+                sortedData.forEach((user, index) => {
+                    const rank = index + 1;
+                    const row = `
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">${rank}</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">${user.name}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">${user.ecoPoints}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">${user.activitiesCompleted}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-500 break-all">${user.userId}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+
+                    if (user.userId === userId) {
+                        leaderboardRankEl.textContent = rank;
+                    }
+                });
+            }
+        };
+
+        const fetchTopics = async () => {
+            const topics = await api.getTopics();
+            const topicsContainer = document.getElementById('topics-container');
+            if (!topicsContainer) return;
+
+            topicsContainer.innerHTML = '';
+
+            topics.forEach(topic => {
+                const card = `
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-transform duration-300 hover:scale-105 topic-card" data-topic-id="${topic.id}">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 id="topic-title-${topic.id}" class="text-xl font-bold text-green-600">${topic.title}</h3>
+                        </div>
+                        <div class="mb-4">
+                            <img src="${topic.image_url}" alt="An image for ${topic.title}" class="w-full rounded-lg card-icon" />
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4">${topic.description}</p>
+                        <button class="w-full mt-4 bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200 continue-btn" data-topic-id="${topic.id}">Continue</button>
+                    </div>
+                `;
+                topicsContainer.innerHTML += card;
+            });
+
+            // Update admin topic dropdowns
+            const deleteTopicSelect = document.getElementById('delete-topic-select');
+            const contentTopicSelect = document.getElementById('content-topic-select');
+            if (deleteTopicSelect) {
+                deleteTopicSelect.innerHTML = '';
+                contentTopicSelect.innerHTML = '';
+                topics.forEach(topic => {
+                    deleteTopicSelect.innerHTML += `<option value="${topic.id}">${topic.title}</option>`;
+                    contentTopicSelect.innerHTML += `<option value="${topic.id}">${topic.title}</option>`;
+                });
+            }
+        };
+
+        const fetchActivities = async () => {
+            const activities = await api.getActivities();
+            const activitiesContainer = document.getElementById('activities-container');
+            if (!activitiesContainer) return;
+
+            activitiesContainer.innerHTML = '';
+            if (activities.length === 0) {
+                activitiesContainer.innerHTML = `<div class="bg-white rounded-xl shadow-lg p-6 text-center">No activities found.</div>`;
+                return;
+            }
+            activities.forEach(activity => {
+                const card = `
+                    <div class="bg-white rounded-xl shadow-lg p-6 transform transition-transform duration-300 hover:scale-105 cursor-pointer activity-card" data-activity-id="${activity.id}">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-lg font-bold">${activity.title}</h3>
+                            <span class="text-xs font-medium text-green-500">${activity.type}</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4">${activity.description}</p>
+                        <div class="mb-4">
+                            <img src="${activity.image_url}" alt="An image for ${activity.title}" class="w-full rounded-lg card-icon" />
+                        </div>
+                        <button class="w-full mt-2 bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200 view-details-btn" data-activity-id="${activity.id}">View Details</button>
+                    </div>
+                `;
+                activitiesContainer.innerHTML += card;
+            });
+        };
+
+        // --- Event Listeners and Functions ---
+        document.addEventListener('DOMContentLoaded', async () => {
+            const startLearningBtn = document.getElementById('start-learning-btn');
+            const viewActivitiesBtn = document.getElementById('view-activities-btn');
+            const addActivityForm = document.getElementById('add-activity-form');
+            const addTopicForm = document.getElementById('add-topic-form');
+            const deleteTopicBtn = document.getElementById('delete-topic-btn');
+            const deleteTopicSelect = document.getElementById('delete-topic-select');
+            const backToTopicsBtn = document.getElementById('back-to-topics-btn');
+            const backToLevelsBtn = document.getElementById('back-to-levels-btn');
+            const beginnerLevelBtn = document.getElementById('beginner-level-btn');
+            const intermediateLevelBtn = document.getElementById('intermediate-level-btn');
+            const advancedLevelBtn = document.getElementById('advanced-level-btn');
+            const setStudentBtnWelcome = document.getElementById('set-student-btn-welcome');
+            const setTeacherBtnWelcome = document.getElementById('set-teacher-btn-welcome');
+            const setAdminBtnWelcome = document.getElementById('set-admin-btn-welcome');
+            const profileForm = document.getElementById('profile-form');
+            const contentTopicSelect = document.getElementById('content-topic-select');
+            const contentLevelSelect = document.getElementById('content-level-select');
+            const addLessonBtn = document.getElementById('add-lesson-btn');
+            const addQuizBtn = document.getElementById('add-quiz-btn');
+            const addChallengeBtn = document.getElementById('add-challenge-btn');
+
+
+            // --- User Authentication and Role Setting ---
+            await fetchUserProfile(userId); // Load initial user profile
+            if (userRole) {
+                updateUIBasedOnRole();
+                listenToProfileData();
+                listenToLeaderboardData();
+                fetchTopics();
+                fetchActivities();
+            } else {
+                showSection('welcome-section');
+            }
+
+
+            document.querySelector('nav').addEventListener('click', (event) => {
+                const link = event.target.closest('.nav-link');
+                if (link) {
+                    event.preventDefault();
+                    const sectionId = link.getAttribute('href').substring(1) + '-section';
+                    showSection(sectionId);
+                }
+            });
+
+            if (startLearningBtn) {
+                startLearningBtn.addEventListener('click', () => {
+                    showSection('topics-section');
+                    fetchTopics();
+                });
+            }
+
+            if (viewActivitiesBtn) {
+                viewActivitiesBtn.addEventListener('click', () => {
+                    showSection('activities-section');
+                    fetchActivities();
+                });
+            }
+
+            if (backToTopicsBtn) {
+                backToTopicsBtn.addEventListener('click', () => {
+                    showSection('topics-section');
+                });
+            }
+
+            if (backToLevelsBtn) {
+                backToLevelsBtn.addEventListener('click', () => {
+                    showLevels(currentTopic);
+                });
+            }
+
+            if (beginnerLevelBtn) {
+                beginnerLevelBtn.addEventListener('click', () => startLearning('beginner'));
+            }
+            if (intermediateLevelBtn) {
+                intermediateLevelBtn.addEventListener('click', () => startLearning('intermediate'));
+            }
+            if (advancedLevelBtn) {
+                advancedLevelBtn.addEventListener('click', () => startLearning('advanced'));
+            }
+
+            document.addEventListener('click', (event) => {
+                if (event.target.classList.contains('continue-btn')) {
+                    const topicId = event.target.dataset.topicId;
+                    showLevels(topicId);
+                }
+                if (event.target.classList.contains('view-details-btn')) {
+                    const activityId = event.target.dataset.activityId;
+                    showActivityDetails(activityId);
+                }
+            });
+
+            if (profileForm) {
+                profileForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const newName = document.getElementById('name-input').value;
+                    const profileStatus = document.getElementById('profile-status');
+
+                    try {
+                        // A real app would post this to the backend API
+                        await api.setUserProfile({ name: newName });
+                        profileStatus.textContent = "Profile updated successfully!";
+                        setTimeout(() => profileStatus.textContent = '', 3000);
+                        listenToProfileData();
+                    } catch (e) {
+                        console.error("Error updating profile:", e);
+                        profileStatus.textContent = "Error updating profile.";
+                    }
+                });
+            }
+
+            // Handle Add Activity Form Submission
+            if (addActivityForm) {
+                addActivityForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const title = document.getElementById('activity-title').value;
+                    const type = document.getElementById('activity-type').value;
+                    const description = document.getElementById('activity-description').value;
+                    const activityStatus = document.getElementById('activity-status');
+
+                    if (!title || !type || !description) {
+                        activityStatus.textContent = "Please fill out all fields.";
+                        return;
+                    }
+
+                    try {
+                        // A real app would post this to the backend API
+                        const newActivity = { title, type, description, image_url: `https://placehold.co/200x150/dbeafe/1e40af?text=${encodeURIComponent(title)}` };
+                        sampleActivities.push(newActivity);
+                        activityStatus.textContent = "Activity added successfully!";
+                        addActivityForm.reset();
+                        fetchActivities();
+                        setTimeout(() => activityStatus.textContent = '', 3000);
+                    } catch (e) {
+                        console.error("Error adding activity:", e);
+                        activityStatus.textContent = "Error adding activity.";
+                    }
+                });
+            }
+
+            // Handle Add Topic Form Submission
+            if (addTopicForm) {
+                addTopicForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const title = document.getElementById('new-topic-title').value;
+                    const topicId = document.getElementById('new-topic-id').value;
+                    const topicStatus = document.getElementById('new-topic-status');
+
+                    if (!title || !topicId) {
+                        topicStatus.textContent = "Please fill out all fields.";
+                        return;
+                    }
+
+                    try {
+                        await api.addTopic({
+                            topicId,
+                            title: title,
+                            description: `Learn about ${title}.`,
+                            image_url: `https://placehold.co/200x150/dbeafe/1e40af?text=${encodeURIComponent(title)}`,
+                            levels: {
+                                'beginner': { lessons: [], quizzes: [], challenges: [] },
+                                'intermediate': { lessons: [], quizzes: [], challenges: [] },
+                                'advanced': { lessons: [], quizzes: [], challenges: [] }
+                            }
+                        });
+                        topicStatus.textContent = "Topic added successfully!";
+                        addTopicForm.reset();
+                        fetchTopics();
+                        setTimeout(() => topicStatus.textContent = '', 3000);
+                    } catch (e) {
+                        console.error("Error adding topic:", e);
+                        topicStatus.textContent = "Error adding topic.";
+                    }
+                });
+            }
+
+            // Handle Delete Topic
+            if (deleteTopicBtn) {
+                deleteTopicBtn.addEventListener('click', async () => {
+                    const topicId = deleteTopicSelect.value;
+                    const deleteStatus = document.getElementById('delete-topic-status');
+                    if (!topicId) {
+                        deleteStatus.textContent = "Please select a topic.";
+                        return;
+                    }
+
+                    try {
+                        await api.deleteTopic(topicId);
+                        deleteStatus.textContent = "Topic deleted successfully!";
+                        fetchTopics();
+                        setTimeout(() => deleteStatus.textContent = '', 3000);
+                    } catch (e) {
+                        console.error("Error deleting topic:", e);
+                        deleteStatus.textContent = "Error deleting topic.";
+                    }
+                });
+            }
+
+            // Handle adding content to a level
+            const addContent = async (contentType) => {
+                const topicId = contentTopicSelect.value;
+                const levelId = contentLevelSelect.value;
+                const contentStatus = document.getElementById('content-status');
+
+                if (!topicId || !levelId) {
+                    contentStatus.textContent = "Please select a topic and level.";
+                    return;
+                }
+
+                let contentData = {};
+                if (contentType === 'lessons') {
+                    const title = document.getElementById('lesson-title').value;
+                    const videoUrl = document.getElementById('lesson-video-url').value;
+                    if (!title || !videoUrl) { contentStatus.textContent = "Please fill out all lesson fields."; return; }
+                    contentData = { title, videoUrl };
+                } else if (contentType === 'quizzes') {
+                    const title = document.getElementById('quiz-title').value;
+                    const question = document.getElementById('quiz-question').value;
+                    const options = [
+                        document.getElementById('quiz-option-1').value,
+                        document.getElementById('quiz-option-2').value,
+                        document.getElementById('quiz-option-3').value,
+                        document.getElementById('quiz-option-4').value
+                    ];
+                    if (!title || !question || options.some(opt => !opt)) { contentStatus.textContent = "Please fill out all quiz fields."; return; }
+                    contentData = { title, question, options };
+                } else if (contentType === 'challenges') {
+                    const title = document.getElementById('challenge-title').value;
+                    const description = document.getElementById('challenge-description').value;
+                    if (!title || !description) { contentStatus.textContent = "Please fill out all challenge fields."; return; }
+                    contentData = { title, description };
+                }
+
+                try {
+                    await api.addLevelContent(topicId, levelId, contentType, contentData);
+                    contentStatus.textContent = `${contentType.slice(0, -1)} added successfully!`;
+                    setTimeout(() => contentStatus.textContent = '', 3000);
+                } catch (e) {
+                    console.error(`Error adding ${contentType.slice(0, -1)}:`, e);
+                    contentStatus.textContent = `Error adding ${contentType.slice(0, -1)}.`;
+                }
+            };
+
+            if (addLessonBtn) addLessonBtn.addEventListener('click', () => addContent('lessons'));
+            if (addQuizBtn) addQuizBtn.addEventListener('click', () => addContent('quizzes'));
+            if (addChallengeBtn) addChallengeBtn.addEventListener('click', () => addContent('challenges'));
+
+            // Welcome buttons
+            if (setStudentBtnWelcome) {
+                setStudentBtnWelcome.addEventListener('click', async () => {
+                    await setRole('student');
+                });
+            }
+            if (setTeacherBtnWelcome) {
+                setTeacherBtnWelcome.addEventListener('click', async () => {
+                    await setRole('teacher');
+                });
+            }
+            if (setAdminBtnWelcome) {
+                setAdminBtnWelcome.addEventListener('click', async () => {
+                    await setRole('admin');
+                });
+            }
+
+            const setRole = async (role) => {
+                userRole = role;
+                await api.setUserProfile({ role: role });
+                updateUIBasedOnRole();
+                listenToProfileData();
+                listenToLeaderboardData();
+                fetchTopics();
+                fetchActivities();
+                console.log(`Role set to ${role}`);
+            };
+        });
+    </script>
+</body>
+
+</html>
